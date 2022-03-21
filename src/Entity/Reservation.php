@@ -22,6 +22,12 @@ class Reservation
     #[ORM\Column(type: 'datetime_immutable')]
     private $createdAt;
 
+    #[ORM\ManyToOne(targetEntity: Suite::class, inversedBy: 'reservations')]
+    private $Suite;
+
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'reservations')]
+    private $User;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +65,30 @@ class Reservation
     public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getSuite(): ?Suite
+    {
+        return $this->Suite;
+    }
+
+    public function setSuite(?Suite $Suite): self
+    {
+        $this->Suite = $Suite;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->User;
+    }
+
+    public function setUser(?User $User): self
+    {
+        $this->User = $User;
 
         return $this;
     }
