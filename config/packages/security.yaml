@@ -29,8 +29,23 @@ security:
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
+
+            form_login:
+                login_path: login
+                check_path: login
+                enable_csrf: true
+
+            logout:
+                path: logout
+                target: hotel
+
+            
+
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER
+
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
 when@test:
