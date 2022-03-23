@@ -31,8 +31,8 @@ class Company
     {
         $this->hotels = new ArrayCollection();
         $this->users = new ArrayCollection();
-    }
-
+    }     
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -121,4 +121,9 @@ class Company
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->name ;
+    }     
 }
