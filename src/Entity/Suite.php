@@ -40,8 +40,8 @@ class Suite
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
-    }
-
+    }   
+  
     public function getId(): ?int
     {
         return $this->id;
@@ -148,4 +148,9 @@ class Suite
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->title ;
+    }   
 }
