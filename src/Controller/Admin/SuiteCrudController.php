@@ -22,9 +22,9 @@ class SuiteCrudController extends AbstractCrudController
     {
        return [
             //IdField::new('id'),
-            TextField::new('title')->setLabel('Nom'),
+            TextField::new('title')->setLabel('Nom de la Suite'),
             TextField::new('image'),
-            TextField::new('description'),
+            TextField::new('description')->setLabel('Description'),
             TextField::new('price')->setLabel('Prix'),
             TextField::new('link')->setLabel('Lien'),
             AssociationField::new('Hotel'),            

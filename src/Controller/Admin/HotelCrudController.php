@@ -17,7 +17,7 @@ class HotelCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [            
-            TextField::new('name')->setLabel('Nom'),
+            TextField::new('name')->setLabel('Nom de l\'Hotel'),
             TextField::new('address')->setLabel('Adresse'),
             TextField::new('city')->setLabel('Ville'),
             TextField::new('description')->setLabel('Description'),

@@ -17,8 +17,8 @@ class CompanyCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [            
-            TextField::new('name'),
-            TextField::new('email'),            
+            TextField::new('name')->setLabel('Nom du Groupe'),  
+            TextField::new('email')->setLabel('Email'),          
         ];
     }
     
