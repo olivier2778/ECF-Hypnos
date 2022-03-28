@@ -28,7 +28,7 @@ security:
 
             logout:
                 path: logout
-                target: hotel            
+                target: hotel_index            
 
     role_hierarchy:
         ROLE_CUSTOMER: [ ROLE_USER ]

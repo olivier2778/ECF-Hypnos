@@ -33,6 +33,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Reservations', 'far fa-calendar', Reservation::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class)->setPermission('ROLE_ADMIN'); 
         yield MenuItem::linkToCrud('Société', 'far fa-building', Company::class)->setPermission('ROLE_ADMIN');   
-        yield MenuItem::linktoRoute('Retour à l\'Accueil', 'fas fa-home', 'hotel');
+        yield MenuItem::linktoRoute('Retour à l\'Accueil', 'fas fa-home', 'hotel_index');
     }
 }
