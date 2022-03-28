@@ -1,9 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page d'accueil{% endblock %}
+{% block title %}Nos Hôtels{% endblock %}
 
-{% block body %}
+{% block body %}    
+
+    <div class=" py-3">           
+        <div class="container-fluid">    
+
+            {% for hotel in hotels %}
+            <div class="row justify-content-center py-5">
+                <div class="col"></div>  
+                <div class="col col-lg-10 col-md-10 col-sm-11 col-12" > 
+                    <div class="card shadow-sm bg-transparent text-center">
+                        <img src="" class="card-img-top" width="1200" height="600" alt="Image Hotel">
+                            <div class="card-body">
+                                <h3>{{ hotel.name }}</h3>
+                                <h4>{{ hotel.city }}</h4>
+                                <p class="card-text">{{ hotel.description }}</p>
+                                <div class="text-center">
+                                    <div class="btn-group">                                     
+                                         <a href= "{{ path('hotel_show', {'id': hotel.id}) }}" class="btn btn-info" role="button">Voir en detail</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>                        
+                </div>
+                <div class="col"></div>  
+            </div>
+            {% endfor %}
+                    
+        </div>
+    </div>
 
 
-
+    
 {% endblock %}
+
+
+
