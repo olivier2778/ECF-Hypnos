@@ -1,26 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}    
-<div class="container-fluid text-center"> 
-    <h1>{{ suite.title }} de l'hotel <span>{{ suite.hotel.name}}</span></h1>                
-    <h3 class="py-3"> La Suite {{ suite.title }}  </h3>
-    <h5 class="py-3">Prix pour une nuit : {{ suite.price }} €</h5>        
-    <h6 class="py-3">{{  suite.description }}</h6>
+    <div class="container-fluid text-center"> 
+        <h1>{{ suite.title }} de l'hotel <span>{{ suite.hotel.name}}</span></h1>                
+        <h3 class="py-3"> La Suite {{ suite.title }}  </h3>
+        <h5 class="py-3">Prix pour une nuit : {{ suite.price }} €</h5>        
+        <h6 class="py-3">{{  suite.description }}</h6>
 
-    <div class="row py-5">
-        <div class="col"></div>  
-        <div class="col col-lg-10 col-md-10 col-sm-11 col-12" >     
-            <div class="card shadow-sm bg-transparent text-center">
-                <img src="" class="card-img-top" width="1000" height="600" alt="Image Hotel">
-                <div class="card-body"> </div>                          
-            </div>  
-              <div >
-                <a href= "{{ path('hotel_index') }}" class="btn btn-info my-3" role="button">Retour</a>  
-            </div> 
-        </div>         
-        <div class="col"></div>     
-    </div> 
-</div>    
+        <div class="row py-5">
+            <div class="col"></div>  
+            <div class="col col-lg-10 col-md-10 col-sm-11 col-12" >     
+                <div class="card bg-transparent border-0 text-center">
+
+                    
+                    <img src="{{ vich_uploader_asset(suite ,'imageFile') }}" class="card-img-top" width="1200" height="auto" alt="{{ suite.image }}">
+
+                    <div class="card-body"> </div>                          
+                </div>  
+                <div >
+                    <a href= "{{ path('hotel_index') }}" class="btn btn-info my-3" role="button">Retour</a>  
+                </div> 
+            </div>         
+            <div class="col"></div>     
+        </div> 
+    </div>    
 {% endblock %}
 
 
