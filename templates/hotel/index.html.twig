@@ -1,40 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos Hôtels{% endblock %}
+{% block title %}Nos Hotels{% endblock %}
 
-{% block body %}    
-
-    <div class=" py-3">           
-        <div class="container-fluid">    
-
-            {% for hotel in hotels %}
-            <div class="row justify-content-center py-5">
-                <div class="col"></div>  
-                <div class="col col-lg-10 col-md-10 col-sm-11 col-12" > 
-                    <div class="card shadow-sm bg-transparent text-center">
-                        <img src="" class="card-img-top" width="1200" height="600" alt="Image Hotel">
-                            <div class="card-body">
-                                <h3>{{ hotel.name }}</h3>
-                                <h4>{{ hotel.city }}</h4>
-                                <p class="card-text">{{ hotel.description }}</p>
-                                <div class="text-center">
-                                    <div class="btn-group">                                     
-                                         <a href= "{{ path('hotel_show', {'id': hotel.id}) }}" class="btn btn-info" role="button">Voir en detail</a>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>                        
-                </div>
-                <div class="col"></div>  
-            </div>
-            {% endfor %}
-                    
-        </div>
-    </div>
-
-
-    
+{% block body %}
+	<div class="container-fluid text-center">
+		<div class=" py-3">
+			{% for hotel in hotels %}
+				<div class="row py-3">
+					<div class="col"></div>
+					<div class="col col-lg-10 col-md-10 col-sm-11 col-12">
+						<div class="card bg-transparent border-0 text-center">
+							<img src="/assets/images/hotel/{{ hotel.name }}.jpg" class="card-img-top" width="1200" height="auto" alt="Image Hotel">
+							<div class="card-body">
+								<h3>{{ hotel.name }}</h3>
+								<h4>{{ hotel.city }}</h4>
+								<p class="card-text">{{ hotel.description }}</p>
+								<div class="text-center">
+									<div class="btn-group">
+										<a href="{{ path('hotel_show', {'id': hotel.id}) }}" class="btn btn-info" role="button">Voir en detail</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col"></div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
 {% endblock %}
-
-
-

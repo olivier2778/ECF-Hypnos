@@ -6,8 +6,10 @@ use App\Repository\HotelRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: HotelRepository::class)]
+#[Vich\Uploadable]
 class Hotel
 {
     #[ORM\Id]

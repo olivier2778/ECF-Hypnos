@@ -12,10 +12,13 @@
         <div class="row py-3">
             <div class="col"></div>  
             <div class="col col-lg-10 col-md-10 col-sm-11 col-12" >            
-                <div class="card shadow-sm bg-transparent text-center">
-                    <img src="" class="card-img-top" width="1000" height="600" alt="Image Hotel">
+                <div class="card bg-transparent border-0 text-center">
+
+                    <img src="{{ vich_uploader_asset(suite ,'imageFile') }}" class="card-img-top" width="1200" height="auto" alt="{{ suite.image }}">
+                    
+
                     <div class="card-body">
-                        <h3>{{ suite.title }} - Hotel {{ hotel.name }}</h3>
+                        <h3>{{ suite.title }} Hotel {{ hotel.name }}</h3>
                         <h5>Prix pour une nuit : {{ suite.price }} €</h5>
                         <p class="card-text">{{ suite.description }}</p>     
                         <div >
