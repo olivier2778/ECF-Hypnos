@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Reservations{% endblock %}
+
+{% block body %}
+    
+
+    <table class="table">
+        <thead>
+            <tr>            
+                <th>Suite</th>
+                <th>Date d'Arrivée</th>
+                <th>Date de Depart</th>
+                <th>Reservé le</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservation in reservations %}
+            <tr>
+                <td>{{ reservation.suite }}</td>
+                <td>{{ reservation.checkIn ? reservation.checkIn|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ reservation.checkOut ? reservation.checkOut|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ reservation.createdAt ? reservation.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('booking_show', {'id': reservation.id}) }}">show</a>
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('booking_new') }}">Create new</a>
+{% endblock %}

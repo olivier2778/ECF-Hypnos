@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Faire une reservation
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid text-center">
+		<div class="row py-5">
+			<div class="col"></div>
+			<div class="col col-lg-06 col-md-08 col-sm-10 col-12">
+
+
+				{{ include('booking/_form.html.twig') }}
+
+				<a href="{{ path('booking_index') }}">back to list</a>
+
+			</div>
+			<div class="col"></div>
+		</div>
+	</div>
+{% endblock %}
