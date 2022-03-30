@@ -66,10 +66,7 @@ class Suite
         return $this;
     }
 
-
-
-
-public function setImageFile(File $image = null)
+    public function setImageFile(File $image = null)
     {
         $this->imageFile = $image;
 
@@ -96,11 +93,6 @@ public function setImageFile(File $image = null)
     {
         return $this->image;
     }
-
-
-
-
-
 
     public function getDescription(): ?string
     {
