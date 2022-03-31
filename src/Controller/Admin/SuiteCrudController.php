@@ -21,15 +21,16 @@ class SuiteCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
        return [            
+            AssociationField::new('Hotel'),  
             TextField::new('title')->setLabel('Nom de la Suite'), 
             Field::new('imageFile')->setFormType(VichImageType::class)->onlyOnDetail(),          
-             ImageField::new('image')
+            ImageField::new('image')
                           ->setBasePath('assets/images/suite')
                           ->setUploadDir('public/assets/images/suite/'),
             TextField::new('description')->setLabel('Description'),
             TextField::new('price')->setLabel('Prix'),
             TextField::new('link')->setLabel('Lien'),
-            AssociationField::new('Hotel'),            
+                      
         ];
     }
 

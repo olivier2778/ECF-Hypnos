@@ -175,5 +175,7 @@ class Suite
     public function __toString()
     {
         return $this->title ;
+        
     }   
+
 }

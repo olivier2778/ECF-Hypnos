@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractDashboardController
 {
-    #[Route('/manager', name: 'manager')]
+    #[Route('/admin', name: 'admin')]
     public function index(): Response
     {        
         return $this->render('admin/dashboard.html.twig');            

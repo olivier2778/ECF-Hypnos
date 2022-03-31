@@ -2,6 +2,13 @@
 
 {% block title %}Mon compte{% endblock %}
 
+
+
 {% block body %}
+
+<h3 class="py-5"> {{ app.user.firstName }} {{ app.user }} , nous vous souhaitons la Bienvenue sur Hypnos</h3>
+
+<a href= "{{ path('booking_index') }}" class="btn btn-info my-3"  role="button">Mes Reservations</a><br> 
+<a href= "{{ path('booking_new') }}" class="btn btn-info my-3"  role="button">Faire une nouvelle Reservation</a>  
 
 {% endblock %}
