@@ -21,9 +21,9 @@ class ReservationCrudController extends AbstractCrudController
        return [            
             DateField::new('checkIn')->setLabel('Date d\'Arrivée'),
             DateField::new('checkOut')->setLabel('Date de Départ'),
-            DateTimeField::new('createdAt')->setLabel('Date de Creation'),         
-            AssociationField::new('Suite')->setLabel('Nom de la Suite'),      
-            AssociationField::new('User')->setLabel('Nom du Client'),               
+            DateTimeField::new('createdAt')->setLabel('Date de Creation'),             
+            AssociationField::new('Suite')->setLabel('Suite'),      
+            AssociationField::new('User')->setLabel('Nom'),             
         ];
     }
 }

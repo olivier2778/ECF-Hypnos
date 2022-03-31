@@ -45,6 +45,17 @@ class ReservationRepository extends ServiceEntityRepository
         }
     }
 
+    public function userBooking($user)
+    {      
+        return $this->createQueryBuilder('u')
+            ->where('u.User = :User')
+            ->setParameter('User',$user)
+            ->getQuery()
+            ->getResult();
+        ;
+    }
+
+
     // /**
     //  * @return Reservation[] Returns an array of Reservation objects
     //  */

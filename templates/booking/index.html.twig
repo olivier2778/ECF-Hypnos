@@ -1,39 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mes Reservations{% endblock %}
+{% block title %}Mes Reservations  {% endblock %}
 
 {% block body %}
     
 
     <table class="table">
         <thead>
-            <tr>            
-                <th>Suite</th>
+            <tr>     
+                <th>Nom Client</th>  
+                <th>Hotel</th>      
+                <th>Suite</th>                
                 <th>Date d'Arrivée</th>
-                <th>Date de Depart</th>
-                <th>Reservé le</th>
-                <th>Actions</th>
+                <th>Date de Depart</th>                
+                <th></th>
             </tr>
         </thead>
         <tbody>
         {% for reservation in reservations %}
             <tr>
+                <td>{{ reservation.user.lastName }} {{ reservation.user.firstName  }}</td>               
+                <td>{{ reservation.suite.hotel }} - {{ reservation.suite.hotel.city }}</td>                
                 <td>{{ reservation.suite }}</td>
-                <td>{{ reservation.checkIn ? reservation.checkIn|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ reservation.checkOut ? reservation.checkOut|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ reservation.createdAt ? reservation.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ reservation.checkIn ? reservation.checkIn|date('d-m-Y') : '' }}</td>
+                <td>{{ reservation.checkOut ? reservation.checkOut|date('d-m-Y') : '' }}</td>                
                 <td>
-                    <a href="{{ path('booking_show', {'id': reservation.id}) }}">show</a>
+                    
+                    <a href="{{ path('booking_show', {'id': reservation.id}) }}" class="btn btn-info" role="button">Selectionner</a>
                     
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucun enregistrement</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('booking_new') }}">Create new</a>
+   
+    <a href="{{ path('booking_new') }}" class="btn btn-info" role="button">Faire une nouvelle reservation</a>
 {% endblock %}

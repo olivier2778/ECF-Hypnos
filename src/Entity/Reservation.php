@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ReservationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: ReservationRepository::class)]
 class Reservation
@@ -19,7 +20,7 @@ class Reservation
     #[ORM\Column(type: 'datetime')]
     private $checkOut;
 
-    #[ORM\Column(type: 'datetime_immutable')]
+    #[ORM\Column(type: 'datetime')]
     private $createdAt;
 
     #[ORM\ManyToOne(targetEntity: Suite::class, inversedBy: 'reservations')]
@@ -27,6 +28,11 @@ class Reservation
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'reservations')]
     private $User;
+
+    public function __construct()
+    {       
+        $this->createdAt  = new \DateTime;
+    }
 
     public function getId(): ?int
     {
@@ -57,12 +63,12 @@ class Reservation
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTime
     {
-        return $this->createdAt;
+        return $this->createdAt ;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
 
@@ -92,4 +98,11 @@ class Reservation
 
         return $this;
     }
+
+    public function __toString()
+    {        
+        return $this->Suite ;              
+    }            
+
+    
 }
