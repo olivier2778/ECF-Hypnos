@@ -13,9 +13,8 @@
 							<img src="/assets/images/hotel/{{ hotel.name }}.jpg" class="card-img-top" width="1200" height="auto" alt="Image Hotel">
 							<div class="card-body">
 								<h3>{{ hotel.name }}</h3>
-								<h4>{{ hotel.city }}</h4>
-								<p class="card-text">{{ hotel.description }}</p>
-								<div class="text-center">
+								<h4>{{ hotel.city }}</h4>								
+								<div class="text-center pt-3">
 									<div class="btn-group">
 										<a href="{{ path('hotel_show', {'id': hotel.id}) }}" class="btn btn-info" role="button">Voir en detail</a>
 									</div>
