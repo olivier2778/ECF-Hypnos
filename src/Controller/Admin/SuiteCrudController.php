@@ -12,14 +12,15 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class SuiteCrudController extends AbstractCrudController
 {
+    
     public static function getEntityFqcn(): string
-    {
-        return Suite::class;
+    {     
+        return Suite::class;       
     }
-
   
     public function configureFields(string $pageName): iterable
     {
+
        return [            
             AssociationField::new('Hotel'),  
             TextField::new('title')->setLabel('Nom de la Suite'), 
@@ -32,7 +33,5 @@ class SuiteCrudController extends AbstractCrudController
             TextField::new('link')->setLabel('Lien'),
                       
         ];
-    }
-
-   
+    }   
 }

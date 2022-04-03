@@ -8,6 +8,7 @@ use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
+
 /**
  * @method Hotel|null find($id, $lockMode = null, $lockVersion = null)
  * @method Hotel|null findOneBy(array $criteria, array $orderBy = null)
@@ -44,7 +45,7 @@ class HotelRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
-
+       
     // /**
     //  * @return Hotel[] Returns an array of Hotel objects
     //  */
