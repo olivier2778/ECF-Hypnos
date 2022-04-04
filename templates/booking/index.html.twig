@@ -5,7 +5,7 @@
 {% block body %}
     
 
-    <table class="table">
+    <table class="table text_color">
         <thead>
             <tr>     
                 <th>Nom Client</th>  
@@ -24,10 +24,8 @@
                 <td>{{ reservation.suite }}</td>
                 <td>{{ reservation.checkIn ? reservation.checkIn|date('d-m-Y') : '' }}</td>
                 <td>{{ reservation.checkOut ? reservation.checkOut|date('d-m-Y') : '' }}</td>                
-                <td>
-                    
-                    <a href="{{ path('booking_show', {'id': reservation.id}) }}" class="btn btn-info" role="button">Selectionner</a>
-                    
+                <td>                    
+                    <a href="{{ path('booking_show', {'id': reservation.id}) }}" class="btn btn-info" role="button">Selectionner</a>                    
                 </td>
             </tr>
         {% else %}
