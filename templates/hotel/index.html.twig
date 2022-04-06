@@ -1,14 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos Hotels{% endblock %}
+{% block title %}
+<div class="fst-italic">Nos Hôtels</div>
+{% endblock %}
 
 {% block body %}
-	<div class="container-fluid text-center">
+	<div class="text-center">
 		<div class=" py-3">
 			{% for hotel in hotels %}
 				<div class="row py-5">
 					<div class="col"></div>
-					<div class="col col-lg-10 col-md-10 col-sm-11 col-12">
+					<div class="col col-lg-11 col-md-11 col-sm-12 col-12">
 						<div class="card bg-transparent border-0 text-center">
 							<img src="/assets/images/hotel/{{ hotel.name }}.jpg" class="card-img-top" width="1200" height="auto" alt="Image Hotel">
 							<div class="card-body">

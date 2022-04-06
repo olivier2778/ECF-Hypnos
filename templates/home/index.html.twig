@@ -1,12 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page d'Acceuil!{% endblock %}
-
-
-
-
 
 {% block body %}
+	<div class="text-center">
 
-<h3>Bienvenue sur Hypnos</h3>
-{% endblock %}
+		<div class="card bg-transparent border-0 text-center text1">
+			<img src="/assets/images/Hall.jpg" class="card-img-top" width="1200" height="auto" alt="Image Hotel">
+			<div class="card-img-overlay">
+				<h1 class="card-title py-3">Bienvenue sur Hypnos</h1>
+			</div>
+		</div>
+
+		<h4 class="py-5 fst-italic">Nous vous proposons le meilleur accueil dans nos hôtels , situés aux quatre coins de l'hexagone</h4>
+
+		<div class="card-group">
+
+			<div class="card bg-transparent border-0">
+				<img src="/assets/images/Jacuzzi.jpg" class="card-img-top" width="1200" height="auto" alt="Image Hotel">
+				<div class="card-body"></div>
+			</div>
+
+			<div class="card bg-transparent border-0">
+				<div class="card-body fst-italic">					
+					<h5 class="card-text pt-5 pb-3  mx-5">Chaque hôtel offre des suites personnalisées, equipées d'un jacuzzi</h5>
+                    <h5 class="card-text pb-5  mx-5">Et vous accueille pour un sejour des plus agréables</h5>
+				</div>
+			</div>
+
+			<div class="card bg-transparent border-0">
+				<img src="/assets/images/Exterieur.jpg" class="card-img-top" width="1200" height="auto" alt="Image Hotel">
+				<div class="card-body"></div>
+			</div>
+
+		</div>
+	</div>
+
+
+</div>{% endblock %}
