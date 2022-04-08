@@ -17,21 +17,13 @@ class ReservationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {    
         $builder                     
-                ->add('hotel', EntityType::class, [                    
-                    'class' => Hotel::class,
-                    'choice_label' => function($hotel){
-                        return $hotel->getName().' - '.$hotel->getCity();
-                    },
-                    'label' => "Hotel - Ville",
-                    'mapped' => false
-                ])
-
+              
                 ->add('suite', EntityType::class, [
                     'class' => Suite::class,
                     'choice_label' => function($suites){
-                        return $suites->getTitle();
+                        return $suites->getHotel().' - '.$suites->getTitle();
                     },
-                    'label' => "Suite",
+                    'label' => "Hotel - Suite",
                     'mapped' => true
                 ])             
 
