@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Orm\EntityRepository;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Test\FormBuilderInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -75,7 +76,8 @@ class UserCrudController extends AbstractCrudController
             ->setChoices(array_combine($roles, $roles))
                 ->allowMultipleChoices()
                 ->renderExpanded()                
-                ->setPermission('ROLE_ADMIN')                       
+                ->setPermission('ROLE_ADMIN'),
+            AssociationField::new('Hotel')->setLabel('Hotel')                 
         ];
     }  
     

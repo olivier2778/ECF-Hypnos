@@ -21,9 +21,9 @@ class ReservationType extends AbstractType
                 ->add('suite', EntityType::class, [
                     'class' => Suite::class,
                     'choice_label' => function($suites){
-                        return $suites->getHotel().' - '.$suites->getTitle();
+                        return $suites->getHotel().' - '.$suites->getTitle().' - '.$suites->getPrice() .' € ';
                     },
-                    'label' => "Hotel - Suite",
+                    'label' => "Hotel - Suite - Prix Nuitée",
                     'mapped' => true
                 ])             
 
