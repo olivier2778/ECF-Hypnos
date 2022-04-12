@@ -2,6 +2,7 @@
 <html lang="fr">
 	<head>
 		<meta charset="UTF-8">
+		<meta content="Le Groupe Hotelier Hypnos propose des hotels dans tout l'hexagone et des sejours dans ses suites personnalisées" name="author">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Hypnos</title>
 
@@ -60,6 +61,7 @@
 									<li class="nav-item">
 										<a class="nav-link" href="{{ path('logout') }}">Déconnexion</a>
 									</li>
+									
 								{% endif %}
 
 								{% if not is_granted('ROLE_USER')  %}

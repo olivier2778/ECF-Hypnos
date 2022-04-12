@@ -28,20 +28,18 @@ class ReservationType extends AbstractType
                 ])             
 
             ->add('checkIn' ,  DateType::class,[
-                'widget' => 'choice',
-                'format' => 'd-M-y',
-                'years' => range(date("Y")  , date("Y") + 1) ,
-                'label'=>'Date d\'Arrivée',
+                'widget' => 'single_text',
+                'attr' => ['class' => 'js-datepicker'] ,
                 'required' => true,
-                ]) 
+                'label' => "Date d'Arrivée",
+                ])   
             
-            ->add('checkOut' ,  DateType::class,[
-                'widget' => 'choice',
-                'format' => 'd-M-y',
-                'years' => range(date("Y") , date("Y") + 1) ,
-                'label'=>'Date de Depart',
-                'required' => true,
-                ])             
+                ->add('checkOut' ,  DateType::class,[
+                    'widget' => 'single_text',
+                    'attr' => ['class' => 'js-datepicker'] ,
+                    'required' => true,
+                    'label' => "Date de Départ",
+                    ])            
         ;
     }
 
