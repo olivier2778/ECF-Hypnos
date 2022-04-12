@@ -18,9 +18,12 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
-    } ,
+    },
     "engines": {
-        "node": "14.x" ,
+        "node": "14.x",
         "npm": "8.x"
+    },
+    "dependencies": {
+        "bootstrap-datepicker": "^1.9.0"
     }
 }
