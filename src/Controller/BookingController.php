@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use DateTime;
 
 #[Route('/member/booking')]
 class BookingController extends AbstractController
@@ -66,9 +67,15 @@ class BookingController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'booking_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'booking_delete', methods: ['GET','POST'])]
     public function delete(Request $request, Reservation $reservation, ReservationRepository $reservationRepository): Response
     {
+        $actualDate = new DateTime();
+        $date = $reservation->getCheckIn()->modify('- 2 day');
+        if ($date < $actualDate) {
+            $this->addFlash('info', 'Suppression impossible , la date est trop proche ! ');
+            return $this->redirectToRoute('booking_index');
+        }
         if ($this->isCsrfTokenValid('delete'.$reservation->getId(), $request->request->get('_token'))) {
             $reservationRepository->remove($reservation);
         }

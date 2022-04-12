@@ -1,9 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mes Reservations  {% endblock %}
+{% block title %}Mes Réservations  {% endblock %}
 
 {% block body %}
-    
+
+    {% for message in app.flashes('info') %}
+    <div class="flash-info h4 text-center text-warning py-3">
+        {{ message }}
+    </div>
+    {% endfor %}    
 
     <table class="table text_color">
         <thead>
@@ -34,8 +39,9 @@
             </tr>
         {% endfor %}
         </tbody>
-    </table>
-
+    </table>  
    
     <a href="{{ path('booking_new') }}" class="btn btn-info" role="button">Faire une nouvelle reservation</a>
 {% endblock %}
+
+
