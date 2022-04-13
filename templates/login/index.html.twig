@@ -5,7 +5,7 @@
 <div class="container-fluid">
    <div class="text-center">    
 
-    <h5 class="my-5">Pour vous connecter à votre compte <br> Veuillez saisir votre loggin et votre mot de passe</h5>      
+    <h5 class="mb-5">Pour vous connecter à votre compte <br> Veuillez saisir votre loggin et votre mot de passe</h5>      
 
     {% if error %}       
         <h3>Vous n'êtes pas autorisé !</h3>  
@@ -15,7 +15,7 @@
         <div class="col"></div>  
             <div class="col col-lg-5 col-md-8 col-sm-10 col-12" >     
 
-                <form action="{{ path('login') }}" method="post">
+                <form action="{{ path('login') }}" method="post" class="color2 py-3 px-3">
 
                     <div class="form-group">
                         <label for="username">Email</label>
@@ -33,7 +33,7 @@
                     
                 </form>
 
-                <div class="my-5">
+                <div class="my-5 color2 py-4">
                     <div> 
                         <p> Vous n'avez pas de compte , vous souhaitez en créer un </p>
                         <a href= "{{ path('register') }}" class="btn btn-primary" role="button">S'inscrire</a>

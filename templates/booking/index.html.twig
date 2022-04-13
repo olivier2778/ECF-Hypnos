@@ -1,47 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mes Réservations  {% endblock %}
+{% block title %}Mes Réservations
+{% endblock %}
 
 {% block body %}
 
-    {% for message in app.flashes('info') %}
-    <div class="flash-info h4 text-center text-warning py-3">
-        {{ message }}
-    </div>
-    {% endfor %}    
+	{% for message in app.flashes('info') %}
+		<div class="flash-info h4 text-center text-warning py-3">
+			{{ message }}
+		</div>
+	{% endfor %}
 
-    <table class="table text_color">
-        <thead>
-            <tr>     
-                <th>Nom Client</th>  
-                <th>Hotel</th>      
-                <th>Suite</th>                
-                <th>Date d'Arrivée</th>
-                <th>Date de Depart</th>                
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for reservation in reservations %}
-            <tr>
-                <td>{{ reservation.user.lastName }} {{ reservation.user.firstName  }}</td>               
-                <td>{{ reservation.suite.hotel }} - {{ reservation.suite.hotel.city }}</td>                
-                <td>{{ reservation.suite }}</td>
-                <td>{{ reservation.checkIn ? reservation.checkIn|date('d-m-Y') : '' }}</td>
-                <td>{{ reservation.checkOut ? reservation.checkOut|date('d-m-Y') : '' }}</td>                
-                <td>                    
-                    <a href="{{ path('booking_show', {'id': reservation.id}) }}" class="btn btn-info" role="button">Selectionner</a>                    
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">Aucun enregistrement</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>  
-   
-    <a href="{{ path('booking_new') }}" class="btn btn-info" role="button">Faire une nouvelle reservation</a>
+
+	<div class="row">		
+		<div class="col col-lg-12 py-5">
+			<table class="table text_color color2">
+				<thead>
+					<tr>						
+						<th>Hotel</th>
+						<th>Suite</th>
+						<th>Date d'Arrivée</th>
+						<th>Date de Départ</th>
+						<th> </th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for reservation in reservations %}
+						<tr>							
+							<td>{{ reservation.suite.hotel }} - {{ reservation.suite.hotel.city }}</td>
+							<td>{{ reservation.suite }}</td>
+							<td>{{ reservation.checkIn ? reservation.checkIn|date('d-m-Y') : '' }}</td>
+							<td>{{ reservation.checkOut ? reservation.checkOut|date('d-m-Y') : '' }}</td>
+							<td>
+								<a href="{{ path('booking_show', {'id': reservation.id}) }}" class="btn btn-info" role="button">Selectionner</a>
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="5">Aucun enregistrement</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>		
+	</div>
+
+	<a href="{{ path('booking_new') }}" class="btn btn-info mt-3" role="button">Faire une nouvelle reservation</a>
 {% endblock %}
-
-

@@ -6,7 +6,7 @@
 
 
 {% block body %}
-	<div class="container-fluid text-center ">
+	<div class="container-fluid text-center pb-5">
 
 		<div class="row pb-5">
 			<div class="col"></div>
@@ -18,7 +18,7 @@
 
 		<div class="row">
 			<div class="col"></div>
-			<div class="col col-lg-5 col-md-8 col-sm-10 col-12">
+			<div class="col col-lg-5 col-md-8 col-sm-10 col-12 color2 py-3">
 
 				{{ form_start(form) }}
 				{{ form_row(form.lastName, {
@@ -37,7 +37,7 @@
             label: 'Message'
         }) }}
 
-				<button type="submit" class="btn btn-success mb-4">Envoyer</button>
+				<button type="submit" class="btn btn-success mb-2">Envoyer</button>
 
 				{{ form_end(form) }}
 
@@ -45,4 +45,5 @@
 			<div class="col"></div>
 		</div>
 	</div>
-</div>{% endblock %}
+</div>
+{% endblock %}

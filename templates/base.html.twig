@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
 		<meta charset="UTF-8">
-		<meta content="Le Groupe Hotelier Hypnos propose des hotels dans tout l'hexagone et des sejours dans ses suites personnalisées" name="author">
+		<meta content="Le Groupe Hotelier Hypnos propose ses hotels dans tout l'hexagone et des séjours dans ses suites personnalisées" name="author">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Hypnos</title>
 
@@ -96,16 +96,35 @@
 			<main class="row align-items-center ">
 				<div class="col">
 
-					<div class="h1 text-center py-3"> {% block title %}{% endblock %}
-						</div>
-
-						{% block body %}{% endblock body %}
-
-						<footer></footer>
-
+					<div class="h1 text-center py-3">
+					 {% block title %}{% endblock %}
 					</div>
-				</main>
-			</div>
+
+					{% block body %}{% endblock body %}
+
+
+				</div>
+			</main>
+		</div>
+
+		
+					{% block footer %}
+					<footer>		                 
+							<div class="container-fluid">
+								<div class="row color1 pe-5">	
+									<div class="col text-center pt-3">							
+										
+										<a class="text_color me-3" href="{{ path('mentions') }}">Mentions légales</a>
+										
+										© Copyright <strong>Hypnos</strong> . All Rights Reserved
+										
+										<p> Created by Olivier </p>
+									</div>
+								</div>
+							</div>
+					</footer>
+					{% endblock %}
+
 		</body>
 
 	</html>

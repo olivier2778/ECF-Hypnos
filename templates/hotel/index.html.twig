@@ -8,21 +8,22 @@
 	<div class="text-center">
 		<div class=" py-3">
 			{% for hotel in hotels %}
-				<div class="row py-5">
+				<div class="row pt-2">
 					<div class="col"></div>
 					<div class="col col-lg-11 col-md-11 col-sm-12 col-12">
-						<div class="card bg-transparent border-0 text-center">
-							<img src="/assets/images/hotel/{{ hotel.name }}.jpg" class="card-img-top" width="1200" height="auto" alt="Image Hotel">
+						<div class="card bg-transparent border-0 text-center">							
 							<div class="card-body">
 								<h3>{{ hotel.name }}</h3>
 								<h4>{{ hotel.city }}</h4>								
-								<div class="text-center pt-3">
+								<div class="text-center pt-3 pb-2">
 									<div class="btn-group">
-										<a href="{{ path('hotel_show', {'id': hotel.id}) }}" class="btn btn-info" role="button">Voir en detail</a>
+										<a href="{{ path('hotel_show', {'id': hotel.id}) }}" class="btn btn-info" role="button">Voir cet Hôtel</a>
 									</div>
 								</div>
 							</div>
+							<img src="/assets/images/hotel/{{ hotel.name }}.jpg" class="card-img-bottom" width="1200" height="auto" alt="Image Hotel">
 						</div>
+						<hr>
 					</div>
 					<div class="col"></div>
 				</div>

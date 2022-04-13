@@ -11,20 +11,21 @@
 			<div class="col col-lg-11 col-md-11 col-sm-12 col-12">
 				<h1 class="pt-5">{{ hotel.name }} de <span>{{ hotel.city }}</span></h1>
 				<h5>{{ hotel.address }} {{ hotel.city }}</h5>
-				<p class="text-start py-3">{{ hotel.description }}</p>
+				<p class="text-start py-5">{{ hotel.description }}</p>
+				<hr>
 
 				{% for suite in hotel.suites %}
-					<div class="card bg-transparent border-0 text-center">
-						<img src="{{ vich_uploader_asset(suite ,'imageFile') }}" class="card-img-top" width="1200" height="auto" alt="{{ suite.image }}">
+					<div class="card bg-transparent border-0 text-center pt-4">						
 						<div class="card-body">
-							<h3>{{ suite.title }} Hôtel {{ hotel.name }}</h3>
+							<h3>La Suite {{ suite.title }}</h3>
 							<h5>Prix pour une nuit : {{ suite.price }} €</h5>							
-							<div class="pt-3 pb-5">
+							<div class="pt-3 pb-2">
 								<a href="{{ path('suite_show', {'id': suite.id}) }}" class="btn btn-info" role="button">Voir cette Suite</a>
-							</div>
-							
+							</div>							
 						</div>
+						<img src="{{ vich_uploader_asset(suite ,'imageFile') }}" class="card-img-bottom" width="1200" height="auto" alt="{{ suite.image }}">
 					</div>
+					<hr>
 				{% endfor %}
 
 			</div>
