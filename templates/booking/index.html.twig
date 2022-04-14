@@ -5,15 +5,8 @@
 
 {% block body %}
 
-	{% for message in app.flashes('info') %}
-		<div class="flash-info h4 text-center text-warning py-3">
-			{{ message }}
-		</div>
-	{% endfor %}
-
-
-	<div class="row">		
-		<div class="col col-lg-12 py-5">
+	<div class="row text-center">			
+		<div class=" py-5 col col-sm-12 col-12 space2">
 			<table class="table text_color color2">
 				<thead>
 					<tr>						
@@ -32,7 +25,7 @@
 							<td>{{ reservation.checkIn ? reservation.checkIn|date('d-m-Y') : '' }}</td>
 							<td>{{ reservation.checkOut ? reservation.checkOut|date('d-m-Y') : '' }}</td>
 							<td>
-								<a href="{{ path('booking_show', {'id': reservation.id}) }}" class="btn btn-info" role="button">Selectionner</a>
+								<a href="{{ path('booking_show', {'id': reservation.id}) }}" class="btn btn-sm btn-info" role="button">Selectionner</a>
 							</td>
 						</tr>
 					{% else %}
@@ -42,8 +35,8 @@
 					{% endfor %}
 				</tbody>
 			</table>
-		</div>		
+			<a href="{{ path('booking_new') }}" class="btn btn-info mt-3" role="button">Faire une nouvelle reservation</a>
+		</div>					
 	</div>
-
-	<a href="{{ path('booking_new') }}" class="btn btn-info mt-3" role="button">Faire une nouvelle reservation</a>
+		
 {% endblock %}
