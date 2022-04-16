@@ -32,7 +32,7 @@
 							<td>{{ reservation.checkIn ? reservation.checkIn|date('d-m-Y') : '' }}</td>
 							<td>{{ reservation.checkOut ? reservation.checkOut|date('d-m-Y') : '' }}</td>
 							<td>
-								<a href="{{ path('booking_show', {'id': reservation.id}) }}" class="btn btn-sm btn-info" role="button">Selectionner</a>
+								<a href="{{ path('booking_show', {'id': reservation.id}) }}" class="btn btn-sm btn-primary" role="button">Selectionner</a>
 							</td>
 						</tr>
 					{% else %}
@@ -42,7 +42,7 @@
 					{% endfor %}
 				</tbody>
 			</table>
-			<a href="{{ path('booking_new') }}" class="btn btn-info mt-3" role="button">Faire une nouvelle reservation</a>
+			<a href="{{ path('booking_new') }}" class="btn btn-primary mt-3" role="button">Faire une nouvelle reservation</a>
 		</div>					
 	</div>
 		

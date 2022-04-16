@@ -33,7 +33,7 @@
 							<h3>La Suite {{ suite.title }}</h3>
 							<h5>Prix pour une nuit : {{ suite.price }} €</h5>							
 							<div class="pt-3 pb-2">
-								<a href="{{ path('suite_show', {'id': suite.id}) }}" class="btn btn-info" role="button">Voir cette Suite</a>
+								<a href="{{ path('suite_show', {'id': suite.id}) }}" class="btn btn-primary" role="button">Voir cette Suite</a>
 							</div>							
 						</div>
 						<img src="{{ vich_uploader_asset(suite ,'imageFile') }}" class="card-img-bottom" width="1200" height="auto" alt="{{ suite.image }}">
