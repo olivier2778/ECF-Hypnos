@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ReservationRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ReservationRepository::class)]
 class Reservation
@@ -13,10 +14,12 @@ class Reservation
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
-
+    
+    #[Assert\GreaterThan("today -1 day", message : "Validation impossible , La date d'Arrivée ne peut pas être anterieure a aujourd'hui")]
     #[ORM\Column(type: 'datetime')]
     private $checkIn;
-
+  
+    #[Assert\Expression("this.getCheckIn() < this.getCheckOut()", message : "Validation impossible , La date de Départ doit être ulterieure à la date d'Arrivée")]
     #[ORM\Column(type: 'datetime')]
     private $checkOut;
 
