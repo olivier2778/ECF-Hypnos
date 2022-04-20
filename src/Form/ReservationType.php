@@ -29,6 +29,7 @@ class ReservationType extends AbstractType
 
             ->add('checkIn' ,  DateType::class,[
                 'widget' => 'single_text',
+                'years' => range(date("Y")  , date("Y") + 1) ,
                 'attr' => ['class' => 'js-datepicker'] ,
                 'required' => true,
                 'label' => "Date d'Arrivée",
@@ -36,6 +37,7 @@ class ReservationType extends AbstractType
             
                 ->add('checkOut' ,  DateType::class,[
                     'widget' => 'single_text',
+                    'years' => range(date("Y")  , date("Y") + 1) ,
                     'attr' => ['class' => 'js-datepicker'] ,
                     'required' => true,
                     'label' => "Date de Départ",

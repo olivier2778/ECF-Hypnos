@@ -1,15 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mon compte{% endblock %}
+{% block title %}Mon compte
+{% endblock %}
 
 {% block body %}
-<div class=" text-center color2 my-5 py-3">
-    <h3 class="py-3 fst-italic"> {{ app.user.firstName }} {{ app.user }} , nous vous souhaitons la Bienvenue sur Hypnos</h3>
-    <div class="btn-group-vertical">
-        <a href= "{{ path('booking_index') }}" class="btn btn-primary my-4"  role="button">Voir mes Reservations</a>
-        
-        <a href= "{{ path('booking_new') }}" class="btn btn-primary my-4"  role="button">Faire une nouvelle Reservation</a>  
-    </div>
-</div>
-<div class=" space2"></div>
+
+	<div class="row text-center mb-5">
+		<div class="col"></div>
+		<div class="col col-lg-6 col-md-9 col-sm-11 col-12 color2 py-3 my-5">
+			
+				<h3 class="py-3 fst-italic">
+					{{ app.user.firstName }}
+					{{ app.user }}
+					, nous vous souhaitons la Bienvenue sur Hypnos</h3>
+				<div class="btn-group-vertical">
+					<a href="{{ path('booking_index') }}" class="btn btn-primary my-4" role="button">Voir mes Reservations</a>
+					<a href="{{ path('booking_new') }}" class="btn btn-primary my-4" role="button">Faire une nouvelle Reservation</a>
+				</div>
+			
+			
+		</div>
+		<div class="col"></div>
+	</div>
+    <div class=" space2"></div>
 {% endblock %}

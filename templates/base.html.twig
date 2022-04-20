@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
 		<meta charset="UTF-8">
-		<meta content="Le Groupe Hotelier Hypnos propose ses hotels dans tout l'hexagone et des séjours dans ses suites personnalisées" name="author">
+		<meta content="Le Groupe Hotelier Hypnos avec ses hotels siuées dans tout l'hexagone , vous propose des services hauts de gamme dans ses suites aux design luxueux" name="author">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Hypnos</title>
 
@@ -10,13 +10,13 @@
 			<link rel="stylesheet" href="{{ asset('assets/styles/style.css') }}">
 			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-			<link href="https://fonts.googleapis.com/css?family=Varela Round&amp;display=swap" rel="stylesheet" />
+			<link href="https://fonts.googleapis.com/css?family=Varela Round&amp;display=swap" rel="stylesheet"/>
 
 			{# 'app' must match the first argument to addEntry() in webpack.config.js #}
 			{{ encore_entry_link_tags('app') }}
 
 			<!-- Renders a link tag (if your module requires any CSS)
-			                 <link rel="stylesheet" href="/build/app.css"> -->
+						                 <link rel="stylesheet" href="/build/app.css"> -->
 
 		{% endblock stylesheets %}
 
@@ -26,9 +26,9 @@
 			{{ encore_entry_script_tags('app') }}
 
 			<!-- Renders app.js & a webpack runtime.js file
-			                <script src="/build/runtime.js" defer></script>
-			                <script src="/build/app.js" defer></script>
-			                See note below about the "defer" attribute -->
+						                <script src="/build/runtime.js" defer></script>
+						                <script src="/build/app.js" defer></script>
+						                See note below about the "defer" attribute -->
 
 		{% endblock %}
 
@@ -36,10 +36,10 @@
 
 	<body>
 		<div class="container-fluid">
-			<header class="row py-5">
+			<header class="row space1">
 				<div class="col">
 					<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgb(6, 38, 78);">
-						<span class="navbar-text mx-3 h2">Hypnos</span>
+						<a class=" navbar-brand mx-3" href="{{ path('home') }}"><img src="/assets/images/logo hypnos.jpg" alt="Logo Hypnos" width="auto" height="65"></a>
 						<button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button>
@@ -62,7 +62,7 @@
 									<li class="nav-item">
 										<a class="nav-link" href="{{ path('logout') }}">Déconnexion</a>
 									</li>
-									
+
 								{% endif %}
 
 								{% if not is_granted('ROLE_USER')  %}
@@ -96,36 +96,27 @@
 		<div class="container-fluid">
 			<main class="row align-items-center ">
 				<div class="col">
+					<div class="h1 text-center py-3"> {% block title %}{% endblock %}</div>
 
-					<div class="h1 text-center py-3">
-					 {% block title %}{% endblock %}
-					</div>
-
-					{% block body %}{% endblock body %}
-
-
+						{% block body %}{% endblock body %}
 				</div>
 			</main>
 		</div>
 
-		
-					{% block footer %}
-					<footer>		                 
-							<div class="container-fluid">
-								<div class="row color1 pe-5 mt-5">	
-									<div class="col text-center pt-3">							
-										
-										<a class="text_color me-3" href="{{ path('mentions') }}">Mentions légales</a>
-										
-										© Copyright <strong>Hypnos</strong> . All Rights Reserved
-										
-										<p> Created by Olivier </p>
-									</div>
-								</div>
+			{% block footer %}
+				<footer>
+					<div class="container-fluid">
+						<div class="row color1 pe-5 mt-5">
+							<div class="col text-center pt-3">
+								<a class="text_color me-3" href="{{ path('mentions') }}">Mentions légales</a>
+								© Copyright	<strong>Hypnos </strong>  All Rights Reserved
+								<p>Created by Olivier</p>
 							</div>
-					</footer>
-					{% endblock %}
+						</div>
+					</div>
+				</footer>
+			{% endblock %}
 
-		</body>
+	</body>
 
-	</html>
+</html>
