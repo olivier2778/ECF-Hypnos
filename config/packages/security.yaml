@@ -19,7 +19,9 @@ security:
             security: false
         main:
             lazy: true
-            provider: app_user_provider
+            provider: app_user_provider   
+            login_throttling:   # tentatives connexion limités à 3 par minute
+                max_attempts: 3
 
             form_login:
                 login_path: login
