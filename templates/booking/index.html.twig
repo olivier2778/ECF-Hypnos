@@ -6,13 +6,25 @@
 {% block body %}
 
 	<div class="row text-center">			
-		<div class=" py-5 col col-sm-12 col-12 space2">
+		<div class=" py-5 col col-sm-12 col-12 space2">				
+
+			{% for message in app.flashes('success') %}
+    			<div class="text-center h3 text-success pb-4 flash-success">
+        			{{ message }}
+				</div>
+			{% endfor %}		
 
 			{% for message in app.flashes('info') %}
-			<div class="flash-info h4 text-center text-warning pb-4">
-				{{ message }}
-			</div>
-    		{% endfor %}    
+    			<div class="text-center h4 text-warning pb-4 flash-info">
+        			{{ message }}
+				</div>
+			{% endfor %}  
+
+			{% for message in app.flashes('delete') %}
+    			<div class="text-center h3 text-primary pb-4 flash-delete">
+        			{{ message }}
+				</div>
+			{% endfor %}  		  		
 
 			<table class="table text_color color2">
 				<thead>
@@ -47,3 +59,9 @@
 	</div>
 		
 {% endblock %}
+
+{% block javascripts %}
+{{ encore_entry_script_tags('booking') }}
+{% endblock %}
+
+

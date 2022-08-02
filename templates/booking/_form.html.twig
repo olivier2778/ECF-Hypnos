@@ -1,5 +1,7 @@
-{{ form_start(form) }}
+{{ form_start(form, { attr: {'id': 'form_valid' } }) }}
     {{ form_widget(form) }}
+
+    <div id="days" class="pb-4"> 0 Nuitée</div>
     
     <button id="bookingButton" type="submit" class="btn btn-success mb-4">Valider</button>
 

@@ -29,10 +29,11 @@ class BookingController extends AbstractController
         $form = $this->createForm(ReservationType::class, $reservation);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {        
             $user = $this->getUser();
             $reservation->setUser($user);           
             $reservationRepository->add($reservation);
+            $this->addFlash('success', 'Votre réservation a été effectuée . Merci');       
             return $this->redirectToRoute('booking_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -40,7 +41,7 @@ class BookingController extends AbstractController
             'reservation' => $reservation,
             'form' => $form,
         ]);
-    }
+    }   
 
     #[Route('/{id}', name: 'booking_show', methods: ['GET'])]
     public function show(Reservation $reservation): Response
@@ -73,13 +74,14 @@ class BookingController extends AbstractController
         $actualDate = new DateTime();
         $date = $reservation->getCheckIn()->modify('- 2 day');
         if ($date < $actualDate) {
-            $this->addFlash('info', 'Suppression impossible , la date est trop proche ! ');
+            $this->addFlash('info', 'Suppression impossible , la date est trop proche ou passée ! ');
             return $this->redirectToRoute('booking_index');
         }
         if ($this->isCsrfTokenValid('delete'.$reservation->getId(), $request->request->get('_token'))) {
             $reservationRepository->remove($reservation);
         }
 
+        $this->addFlash('delete', 'Votre réservation a été supprimée avec succés !');
         return $this->redirectToRoute('booking_index', [], Response::HTTP_SEE_OTHER);
     }
     
